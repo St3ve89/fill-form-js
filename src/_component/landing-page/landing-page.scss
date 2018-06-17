@@ -119,6 +119,12 @@ h1.logo {
   transition: width 0.5s ease-in-out;
 }
 
+.close {
+  #next-btn, #prev-btn {
+    color: $color-white;
+  }
+}
+
 .error {
   #input-progress {
     border-color: $color-red;
