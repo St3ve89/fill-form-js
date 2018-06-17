@@ -72,6 +72,11 @@ function hideQuestion() {
   inputGroup.style.border = null;
 }
 
+// transfrom to create shake motion
+function transform(x, y) {
+  formBox.style.transform = `translate(${x}px, ${y}px)`;
+}
+
 // validate field
 function validate() {
   // make sure pattern matches if there is one
@@ -84,10 +89,16 @@ function validate() {
 
 // field input fail
 function inputFail() {
-
+  formBox.className = 'error';
+  // repeat shake motion - set i to number of shakes
+  for (let i = 0; i < 6; i++) {
+    setTimeout(transform, shakeTime * i, ((i % 2) * 2 - 1) * 20, 0);
+    setTimeout(transform, shakeTime * 6, 0, 0);
+    inputField.focus();
+  }
 }
 
 // field input passed
 function inputPass() {
-  
+
 }
