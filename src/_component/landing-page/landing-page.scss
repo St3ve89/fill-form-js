@@ -10,6 +10,13 @@ h1.logo {
   margin-bottom: 5rem;
 }
 
+h1.end {
+  position: relative;
+  color: $color-white;
+  opacity: 0;
+  transition: 0.8s ease-in-out;
+}
+
 #container {
   display: flex;
   height: 100vh;

@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', getQuestion);
 // next button click
 nextBtn.addEventListener('click', validate) 
 
+// inpu field enter click
+inputField.addEventListener('keyup', e => {
+  if(e.keyCode == 13) {
+    validate();
+  }
+});
+
 // functions
 // get question from array and add to markup
 function getQuestion() {
@@ -120,4 +127,15 @@ function inputPass() {
     // form complete
     formComplete();
   }
+}
+
+// all fields complete - show h1 end
+function formComplete() {
+  const h1 = document.createElement('h1');
+  h1.addClass('end');
+  h1.appendChild(document.createTextNode(`Thanks ${question[0].answer} You are registered and will get an email shortly`));
+  setTimeout(() => {
+    formBox.parentElement.appendChild(h1);
+    setTimeout(() => (h1.style.opacity = 1), 50);
+  }, 1000);
 }
