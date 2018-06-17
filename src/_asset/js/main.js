@@ -29,8 +29,11 @@ const inputProgress = document.querySelector('#input-progress');
 const progress = document.querySelector('#progress-bar');
 
 // events
-
+// get question on dom load
 document.addEventListener('DOMContentLoaded', getQuestion);
+
+// next button click
+nextBtn.addEventListener('click', validate) 
 
 // functions
 // get question from array and add to markup
@@ -58,4 +61,33 @@ function showQuestion() {
   inputGroup.style.opacity = 1;
   inputProgress.style.transition = '';
   inputProgress.style.width = '100%';
+}
+
+// hide question from user
+function hideQuestion() {
+  inputGroup.style.opacity = 0;
+  inputLabel.style.marginLeft = 0;
+  inputProgress.style.width = 0;
+  inputProgress.style.transition = 'none';
+  inputGroup.style.border = null;
+}
+
+// validate field
+function validate() {
+  // make sure pattern matches if there is one
+  if(!inputField.value.match(questions[position].pattern || /.+/)) {
+    inputFail();
+  } else {
+    inputPass();
+  }
+}
+
+// field input fail
+function inputFail() {
+
+}
+
+// field input passed
+function inputPass() {
+  
 }
