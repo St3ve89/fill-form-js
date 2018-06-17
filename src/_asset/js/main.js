@@ -100,5 +100,24 @@ function inputFail() {
 
 // field input passed
 function inputPass() {
+  formBox.className = '';
+  setTimeout(transform, shakeTime * 0, 0, 10);
+  setTimeout(transform, shakeTime * 1, 0, 0);
 
+  // increment the position
+  position++;
+
+  // if new question, hide current and get next
+  if(questions[position]) {
+    hideQuestion();
+    getQuestion();
+  } else {
+    // remove if no more questions
+    hideQuestion();
+    formBox.className = 'close';
+    progress.style.width = '100%';
+
+    // form complete
+    formComplete();
+  }
 }
